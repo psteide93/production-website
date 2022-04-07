@@ -17,8 +17,6 @@ fetch(url)
 
 function addMultiCardsToPage(animal) {
     return `
-        <div class = greeting>
-        </div>
         <div class = "animal-card">
         <h3>${animal.name}</h3> 
         <p><span> (${animal.latin_name}) </span} </p>
