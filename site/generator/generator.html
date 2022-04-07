@@ -21,8 +21,29 @@
     </header>
     <main>
         <img src="../assets/banner.jpg" alt="banner">
-        <div class="p-container">
-            <p>Please fill out the form below and hit submit to generate your list</p>
+        <div class="container">
+            <p>Please fill out the form below and hit submit to generate your list, you will then generate a list of random animals you can read more about</p>
+            <form>
+                <label for="first-name">First Name </label>
+                <input type="text" name="first-name" id="first-name">
+                <label for="e-mail">E-mail </label>
+                <input type="text" name="e-mail" id="e-mail">
+                <label for="number-of-cards">How many animals would you like? </label>
+                <select name = "number-of-cards">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <button type="submit">Submit!</button>
+
+            </form>
         </div>
         <ul class="animals"></ul>
     </main>
