@@ -78,3 +78,7 @@ main>p{
     top:80%;
     left:35%;
 }
+
+.animal-card img{
+    max-width: 300px;
+}
