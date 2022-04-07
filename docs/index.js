@@ -1,7 +1,7 @@
 
 const animalHook = document.querySelector(".animals")
 const bigCard = document.querySelector(".big-card")
-
+const main = document.querySelector("main")
 function lowerCaseFirstLetter(string) {
     return string.charAt(0).toLowerCase() + string.slice(1)
 }
@@ -41,6 +41,16 @@ function addMultiCardsToPage(animal){
 `
 }
 
+function addErrorMessageToPage(){
+    const p = document.createElement("p")
+     p.textContent = "yikes"
+    main.append(p)    
+}
+
+function parseJson(response){
+    return response => response.json()
+}
+
 fetch(getAnimalApiUrlNumber(1))
     .then(response => response.json())
     .then(bigAnimals => bigAnimals.forEach(bigAnimal => {
@@ -56,5 +66,7 @@ fetch(getAnimalApiUrlNumber(3))
         li.innerHTML = addMultiCardsToPage(animal)
         animalHook.append(li)
     }))
+    
+    //.catch(addErrorMessageToPage())
 
 

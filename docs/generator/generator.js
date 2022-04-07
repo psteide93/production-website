@@ -39,6 +39,10 @@ function getAnimalApiUrlNumber(number) {
     return `https://zoo-animal-api.herokuapp.com/animals/rand/${number}`
 }
 
+// button.addEventListener("click" , () => {
+
+// })
+
 const userInfo = {
     name:queryParams.get("first-name"),
     email: queryParams.get("e-mail"),
