@@ -59,8 +59,22 @@ h1{
     color: white;
 }
 
+main{
+    position: relative;
+}
+
 main>img{
     width: 100%;
     height: 300px;
     object-fit: cover;
+}
+
+main>p{
+    background-color: var(--limeGreen);
+    width: 500px;
+    font-size: 24px;
+    position: absolute;
+    padding:24px;
+    top:80%;
+    left:35%;
 }
