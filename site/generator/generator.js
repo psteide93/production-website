@@ -17,6 +17,8 @@ fetch(url)
 
 function addMultiCardsToPage(animal) {
     return `
+        <div class = greeting>
+        </div>
         <div class = "animal-card">
         <h3>${animal.name}</h3> 
         <p><span> (${animal.latin_name}) </span} </p>
@@ -26,9 +28,8 @@ function addMultiCardsToPage(animal) {
          <p> Lives in ${lowerCaseFirstLetter(animal.habitat)} </p>
          <p> Eats: ${animal.diet} </p>
          <p> Where in the world can this animal be found: ${animal.geo_range} </p>
-        </div>
-        <a href = "./learn-more/learn-more.html?animal=${animal.name}">Learn More!</a>
-        </div> 
+         <a class = "learn-more" href = "./learn-more/learn-more.html?animal=${animal.name}">Learn More!</a>
+         </div> 
     `
 }
 
@@ -46,5 +47,8 @@ const userInfo = {
     numberofAnimals: queryParams.get("number-of-cards")
 
 }
+
+// `<p> Hello, ${userInfo.name}, here are the animals you've requested.</p>`
+
 
 addAnimalsToPage(getAnimalApiUrlNumber(userInfo.numberofAnimals))

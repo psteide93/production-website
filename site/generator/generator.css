@@ -76,6 +76,7 @@ main>img {
     grid-template-columns: 3fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2em;
+    margin:72px;
 }
 
 .animal-card {
@@ -115,4 +116,45 @@ h3 {
 
 .hidden{
     display: none;
+}
+
+.container p{
+    font-size: 24px;
+    margin: 16px 32px;
+}
+
+form{
+    margin-left: 64px;
+}
+
+form label{
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+form button{
+    border: none;
+    height: 50px;
+    width: 100px;
+    background-color: var(--Green);
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.learn-more{
+    display: inline-block;
+    margin-top: 32px;
+    text-decoration: none;
+    color: var(--Green);
+    border: 2px solid var(--Green);
+    padding: 16px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    
+}
+
+.learn-more:hover{
+    color:white;
+    background-color: var(--Green);
+
 }
