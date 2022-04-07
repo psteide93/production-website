@@ -79,6 +79,23 @@ main>p{
     left:35%;
 }
 
-.animal-card img{
+.animal-card{
+    display: flex;
+    max-width: 600px;
+}
+
+.animal-cards img{
     max-width: 300px;
+    /* height: 300px;
+    object-fit:contain; */
+}
+
+.animal-name{
+    text-transform: uppercase;
+}
+
+.animal-card span{
+    font-weight: bold;
+    font-style: italic;
+    text-transform: none;
 }
