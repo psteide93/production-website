@@ -26,7 +26,7 @@ function addMultiCardsToPage(animal) {
          <p> Lives in ${lowerCaseFirstLetter(animal.habitat)} </p>
          <p> Eats: ${animal.diet} </p>
          <p> Where in the world can this animal be found: ${animal.geo_range} </p>
-         <a class = "learn-more" href = "./learn-more/learn-more.html?animal=${animal.name}">Learn More!</a>
+         <a class = "learn-more" href = "./learn-more/learn-more.html?animal=${animal.latin_name}&active=${animal.active_time}">Learn More!</a>
          </div> 
     `
 }
