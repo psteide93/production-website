@@ -3,6 +3,7 @@ const queryString = window.location.search
 const queryParams = new URLSearchParams(queryString)
 const animalHook = document.querySelector(".animals")
 
+
 function addAnimalsToPage(url) {
 fetch(url)
     .then(response => response.json())
@@ -26,6 +27,7 @@ function addMultiCardsToPage(animal) {
          <p> Eats: ${animal.diet} </p>
          <p> Where in the world can this animal be found: ${animal.geo_range} </p>
         </div>
+        <a href = "./learn-more/learn-more.html?animal=${animal.name}">Learn More!</a>
         </div> 
     `
 }
@@ -38,14 +40,11 @@ function getAnimalApiUrlNumber(number) {
     return `https://zoo-animal-api.herokuapp.com/animals/rand/${number}`
 }
 
-
-button.addEventListener("click", event => {
-    const number = queryParams.get("number-of-cards")
-    const url = getAnimalApiUrlNumber(number)
-    console.log(url)
-    addAnimalsToPage(url)
+const userInfo = {
+    name:queryParams.get("first-name"),
+    email: queryParams.get("e-mail"),
+    numberofAnimals: queryParams.get("number-of-cards")
 
 }
 
-
-)
+addAnimalsToPage(getAnimalApiUrlNumber(userInfo.numberofAnimals))

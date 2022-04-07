@@ -112,3 +112,7 @@ h3 {
 .card-text {
     margin-left: 16px;
 }
+
+.hidden{
+    display: none;
+}
