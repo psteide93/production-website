@@ -7,11 +7,60 @@
     --Green: hsl(90, 71%, 35%);
 }
 
+*{
+    box-sizing:border-box;
+}
+
 body{
     font-family: 'Poppins', sans-serif;
 }
 
+header{
+    background-color: var(--oliveGreen);
+    padding: 8px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav{
+    display:flex;
+}
+
+nav li{
+    list-style-type: none;
+}
+
+nav li+li{
+    margin-left: 16px;
+}
+
+nav li+li::before{
+    content: "|";
+    margin-right: 16px;
+    color: white;
+    font-size: 24px;
+}
+
+nav li a{
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+}
+
+nav li a:hover{
+    color: var(--yellowGreen);
+}
+
+h1{
+    font-size: 64px;
+    font-weight: bold;
+    color: var(--yellowGreen);
+    color: white;
+}
 
 main>img{
     width: 100%;
+    height: 300px;
+    object-fit: cover;
 }
