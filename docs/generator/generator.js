@@ -1,4 +1,4 @@
-const button = document.querySelector("button")
+const form = document.querySelector("form")
 const queryString = window.location.search
 const queryParams = new URLSearchParams(queryString)
 const animalHook = document.querySelector(".animals")
@@ -39,18 +39,23 @@ function getAnimalApiUrlNumber(number) {
     return `https://zoo-animal-api.herokuapp.com/animals/rand/${number}`
 }
 
-// button.addEventListener("click" , () => {
+form.addEventListener("submit" , (event) => {
+    event.preventDefault()
+    console.log("hello")
 
-// })
 
-const userInfo = {
-    name:queryParams.get("first-name"),
-    email: queryParams.get("e-mail"),
-    numberofAnimals: queryParams.get("number-of-cards")
+})
 
-}
+// const userInfo = {
+//     name:queryParams.get("first-name"),
+//     email: queryParams.get("e-mail"),
+//     numberofAnimals: queryParams.get("number-of-cards")
+
+// }
+
+
+
+// addAnimalsToPage(getAnimalApiUrlNumber(userInfo.numberofAnimals))
+
 
 // `<p> Hello, ${userInfo.name}, here are the animals you've requested.</p>`
-
-
-addAnimalsToPage(getAnimalApiUrlNumber(userInfo.numberofAnimals))
