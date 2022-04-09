@@ -1,40 +1,23 @@
-const form = document.querySelector("form");
-const queryString = window.location.search;
-const queryParams = new URLSearchParams(queryString);
-const animalHook = document.querySelector(".animals");
+const selector = document.querySelector(".selector");
+const ul = document.querySelector(".animals");
 
-function addAnimalsToPage(url) {
-  fetch(url)
-    .then((response) => response.json())
+selector.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const numberOfCards = selector.querySelector("#number-of-cards").value;
+  fetch(getAnimalApiUrlNumber(numberOfCards))
+    .then(parseJSON)
     .then((animals) =>
       animals.forEach((animal) => {
-        const li = document.createElement("li");
-        li.classList.add("animal-cards");
-        li.innerHTML = addMultiCardsToPage(animal);
-        animalHook.append(li);
+        fetch(getWikiUrl(animal.latin_name))
+          .then(parseJSON)
+          .then((wikiInfo) => {
+            createAnimalCard(animal, wikiInfo);
+          });
       })
     );
-}
+    selector.classList.add("hidden")
+});
 
-function addMultiCardsToPage(animal) {
-  return `
-        <div class = "animal-card">
-        <h3>${animal.name}</h3> 
-        <p><span> (${animal.latin_name}) </span} </p>
-        <div class = "card-body">
-        <img src = "${animal.image_link}" alt = ${animal.name}>
-        <div class = "card-text">
-         <p> Lives in ${lowerCaseFirstLetter(animal.habitat)} </p>
-         <p> Eats: ${animal.diet} </p>
-         <p> Where in the world can this animal be found: ${
-           animal.geo_range
-         } </p>
-         <a class = "learn-more" href = "./learn-more/learn-more.html?animal=${
-           animal.latin_name
-         }&active=${animal.active_time}">Learn More!</a>
-         </div> 
-    `;
-}
 
 function lowerCaseFirstLetter(string) {
   return string.charAt(0).toLowerCase() + string.slice(1);
@@ -44,52 +27,34 @@ function getAnimalApiUrlNumber(number) {
   return `https://zoo-animal-api.herokuapp.com/animals/rand/${number}`;
 }
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const numberOfCards = form.querySelector("#number-of-cards").value;
-  fetch(`https://zoo-animal-api.herokuapp.com/animals/rand/${numberOfCards}`)
-    .then((response) => response.json())
-    .then((animals) =>
-      animals.map((animalWithId, id) => {
-        animalWithId.id = id + 1;
-        console.log(animalWithId)
-        return animalWithId;
-      }).then(fetch(`https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&limt=1&search=${animalWithId.latin_name}`)
-      ).then(response => response.json())
-      .then(parsedResponse => console.log(parsedResponse))
-      
-      )
-});
+function getWikiUrl(animalName) {
+  return `https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&limt=1&search=${animalName}`;
+}
 
-//     const li = document.createElement("li")
-//     li.classList.add("animal-cards")
-//     li.innerHTML =  `
-//     <div class = "animal-card">
-//     <h3>${animal.name}</h3>
-//     <p><span> (${animal.latin_name}) </span} </p>
-//     <div class = "card-body">
-//     <img src = "${animal.image_link}" alt = ${animal.name}>
-//     <div class = "card-text">
-//      <p> Lives in ${lowerCaseFirstLetter(animal.habitat)} </p>
-//      <p> Eats: ${animal.diet} </p>
-//      <p> Where in the world can this animal be found: ${animal.geo_range} </p>
-//      <a class = "learn-more" href = "./learn-more/learn-more.html?animal=${animal.latin_name}&active=${animal.active_time}">Learn More!</a>
-//      </div>
-// `
-//     animalHook.append(li)
-// }))
+function parseJSON(httpResponse) {
+  return httpResponse.json();
+}
 
-//form.classList.add("hidden")
-
-// })
-
-// const userInfo = {
-//     name:queryParams.get("first-name"),
-//     email: queryParams.get("e-mail"),
-//     numberofAnimals: queryParams.get("number-of-cards")
-
-// }
-
-//addAnimalsToPage(getAnimalApiUrlNumber(userInfo.numberofAnimals))
-
-// `<p> Hello, ${userInfo.name}, here are the animals you've requested.</p>`
+function createAnimalCard(animal, wikiInfo) {
+  const li = document.createElement("li");
+  const { name, latin_name, habitat, diet, image_link, geo_range } = animal;
+  li.classList.add("animal-cards");
+  li.innerHTML = `
+      <div class = "animal-card">
+      <h3>${name}</h3>
+      <p><span> (${latin_name}) </span} </p>
+      <div class = "card-body">
+      <img src = "${image_link}" alt = ${name}>
+      <div class = "card-text">
+       <p> Lives in ${lowerCaseFirstLetter(habitat)} </p>
+       <p> Eats: ${diet} </p>
+       <p> Where in the world can this animal be found: ${geo_range}</p>
+       <a 
+        target = "blank" 
+        class = "learn-more" 
+        href = ${wikiInfo[3][0]} 
+       >Learn More!</a>
+       </div>
+  `;
+  ul.append(li);
+}
