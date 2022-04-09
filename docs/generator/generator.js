@@ -1,5 +1,6 @@
 const selector = document.querySelector(".selector");
 const ul = document.querySelector(".animals");
+const favorites = document.querySelector(".favorites");
 
 selector.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -12,12 +13,24 @@ selector.addEventListener("submit", (event) => {
           .then(parseJSON)
           .then((wikiInfo) => {
             createAnimalCard(animal, wikiInfo);
+            createOptionList(animal);
           });
       })
     );
-    selector.classList.add("hidden")
+  selector.classList.add("hidden");
+  favorites.classList.remove("hidden");
 });
 
+favorites.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const result = document.querySelectorAll(".list-options label").value;
+  console.log(result)
+  const animals = result.map(result => result.outerText)
+  console.log(animals)
+  animals.filter((animal) => {
+    if (document.querySelector(".animal").checked) console.log(animal.textContent);
+  });
+});
 
 function lowerCaseFirstLetter(string) {
   return string.charAt(0).toLowerCase() + string.slice(1);
@@ -57,4 +70,13 @@ function createAnimalCard(animal, wikiInfo) {
        </div>
   `;
   ul.append(li);
+}
+
+function createOptionList(item) {
+  const listOptions = document.querySelector("#favorite-animal");
+  const option = document.createElement("option");
+  const {name} = item
+  option.textContent = name
+  option.value = name
+  listOptions.append(option);
 }
