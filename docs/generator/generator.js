@@ -41,7 +41,30 @@ function getAnimalApiUrlNumber(number) {
 
 form.addEventListener("submit" , (event) => {
     event.preventDefault()
-    console.log("hello")
+    const numberOfCards = form.querySelector("#number-of-cards").value
+    fetch(`https://zoo-animal-api.herokuapp.com/animals/rand/${numberOfCards}`)
+    .then(response => response.json())
+    .then(animals => animals.forEach(animal => {
+        const li = document.createElement("li")
+        li.classList.add("animal-cards")
+        li.innerHTML =  `
+        <div class = "animal-card">
+        <h3>${animal.name}</h3> 
+        <p><span> (${animal.latin_name}) </span} </p>
+        <div class = "card-body">
+        <img src = "${animal.image_link}" alt = ${animal.name}>
+        <div class = "card-text">
+         <p> Lives in ${lowerCaseFirstLetter(animal.habitat)} </p>
+         <p> Eats: ${animal.diet} </p>
+         <p> Where in the world can this animal be found: ${animal.geo_range} </p>
+         <a class = "learn-more" href = "./learn-more/learn-more.html?animal=${animal.latin_name}&active=${animal.active_time}">Learn More!</a>
+         </div> 
+    `
+        animalHook.append(li)
+    }))
+    
+    form.classList.add("hidden")
+
 
 
 })
@@ -55,7 +78,7 @@ form.addEventListener("submit" , (event) => {
 
 
 
-// addAnimalsToPage(getAnimalApiUrlNumber(userInfo.numberofAnimals))
+//addAnimalsToPage(getAnimalApiUrlNumber(userInfo.numberofAnimals))
 
 
 // `<p> Hello, ${userInfo.name}, here are the animals you've requested.</p>`
