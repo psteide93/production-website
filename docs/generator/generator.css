@@ -282,6 +282,13 @@ form label{
 
 }
 
+h2{
+  font-weight: bold;
+  font-size: 36px;
+  padding: 36px;
+  background-color: var(--Green);
+}
+
 .hidden{
   display: none;
 }
