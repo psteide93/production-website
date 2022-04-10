@@ -1,6 +1,14 @@
 const selector = document.querySelector(".selector");
 const ul = document.querySelector(".animals");
 const favorites = document.querySelector(".favorites");
+const hamburger = document.querySelector(".hamburger")
+
+hamburger.addEventListener("click", ()=> {
+  const nav = document.querySelector("nav")
+  hamburger.classList.toggle("active")
+  nav.classList.toggle("active")
+})
+
 
 selector.addEventListener("submit", (event) => {
   event.preventDefault();
