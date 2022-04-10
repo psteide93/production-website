@@ -175,11 +175,27 @@ main>img {
 
 .animals {
     display: grid;
-    grid-template-columns: 3fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2em;
     margin:72px;
 }
+
+@media (max-width: 1650px) {
+  .animals{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 1250px) {
+  .animals{
+    grid-template-columns: 1fr;
+    justify-content: center
+  }
+  .animal-cards {
+    justify-self: center;
+  }
+}
+
 
 .animal-card {
     background-color: white;
@@ -197,8 +213,6 @@ main>img {
 
 .animal-cards img {
     max-width: 250px;
-    /* height: 300px;
-    object-fit:contain; */
 }
 
 h3 {
