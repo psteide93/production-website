@@ -35,7 +35,8 @@ header {
 
 @media (max-width: 650px) {
   header {
-    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
 
@@ -46,6 +47,7 @@ nav {
 @media (max-width: 650px) {
   nav {
     flex-direction: column;
+    display: none;
   }
 }
 
@@ -104,11 +106,27 @@ h1 {
   color: white;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 875px) {
     h1 {
       margin-bottom: 8px;
     }
   }
+
+
+  .md-48{
+    font-size: 48px;
+ }
+
+ .material-icons-outlined{
+  display:none;
+ }
+
+ @media (max-width: 650px) {
+    .material-icons-outlined {
+      display: inline-block;
+    }
+  }
+
 
 main > img {
   width: 100%;
