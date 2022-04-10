@@ -222,25 +222,7 @@ h3 {
     margin: 16px 32px;
 }
 
-/* form{
-    margin-left: 64px;
-}
-
-form label{
-    font-weight: bold;
-    margin-right: 8px;
-}
-
-form input, form label{
-    display: block;
-}
-
-form input {
-    margin-bottom: 16px;
-    padding: 8px;
-  } */
-
-.selector{
+form{
   display:flex;
   flex-direction: column;
   align-items: center;
@@ -251,11 +233,8 @@ form input {
 
 }
 
-/* .selector input, .selector label{
-  display: block;
-} */
 
-.selector label{
+form label{
   font-weight: bold;
   font-size: 24px;
   margin-bottom: 16px;
