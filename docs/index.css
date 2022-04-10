@@ -43,7 +43,7 @@ header {
   }
 }
 
-nav {
+nav ul {
   display: flex;
   align-items: center;
 }
