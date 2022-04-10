@@ -23,14 +23,14 @@ selector.addEventListener("submit", (event) => {
 
 favorites.addEventListener("submit", (event) => {
   event.preventDefault();
-  const result = document.querySelectorAll(".list-options label").value;
-  console.log(result)
-  const animals = result.map(result => result.outerText)
-  console.log(animals)
-  animals.filter((animal) => {
-    if (document.querySelector(".animal").checked) console.log(animal.textContent);
+  const results = favorites.querySelectorAll("#favorite-animal option");
+  results.forEach(result => console.log(result.selected.value))
+  const data =["dog", "cat", "mouse"]
+  localStorage.setItem("favoriteAnimals", JSON.stringify(data))
+  console.log(localStorage.getItem("favoriteAnimals"))
+
   });
-});
+
 
 function lowerCaseFirstLetter(string) {
   return string.charAt(0).toLowerCase() + string.slice(1);
