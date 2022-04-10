@@ -174,9 +174,60 @@ main>img {
 }
 
 h2{
+  text-transform: uppercase;
   font-weight: bold;
   font-size: 36px;
   padding: 36px;
   background-color: var(--Green);
 }
 
+p{
+  font-size: 24px;
+  margin: 16px 8px;
+}
+
+.favorite-list{
+  margin-left: 24px;
+}
+
+.favorite-list li{
+  font-size: 48px;
+  margin-bottom: 8px
+}
+
+form{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 72px;
+  background-color: var(--oliveGreen);
+  padding: 32px 16px;
+}
+
+form p{
+  color: white;
+}
+
+form input, form label{
+  display: block;
+}
+
+form label{
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+form input{
+  margin-bottom: 8px;
+  height: 32px;
+}
+
+#submit{
+  border: none;
+  height: 32px;
+  width: 64px;
+  background-color: var(--Green);
+  font-weight: bold;
+  border-radius: 4px;
+  margin-top: 16px;
+}
