@@ -2,6 +2,9 @@
 const animalHook = document.querySelector(".animals")
 const bigCard = document.querySelector(".big-card")
 const main = document.querySelector("main")
+const hamburger = document.querySelector(".hamburger")
+
+
 function lowerCaseFirstLetter(string) {
     return string.charAt(0).toLowerCase() + string.slice(1)
 }
@@ -67,6 +70,10 @@ fetch(getAnimalApiUrlNumber(3))
         animalHook.append(li)
     }))
     
-    //.catch(addErrorMessageToPage())
-
+    
+hamburger.addEventListener("click", ()=> {
+    const nav = document.querySelector("nav")
+    hamburger.classList.toggle("active")
+    nav.classList.toggle("active")
+})
 
