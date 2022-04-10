@@ -43,7 +43,7 @@ header {
   }
 }
 
-nav ul {
+nav {
   display: flex;
   align-items: center;
 }
@@ -60,6 +60,17 @@ nav ul {
     width: 100%;
     transition: 300ms;
   }
+}
+
+
+nav ul{
+  display:flex
+}
+
+@media (max-width: 650px) {
+nav ul{
+  flex-direction: column;
+}
 }
 
 nav li {
