@@ -254,7 +254,7 @@ form label{
   margin-bottom: 16px;
 }
 
-#submit{
+.submit{
     border: none;
     height: 32px;
     width: 64px;
