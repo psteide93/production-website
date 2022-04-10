@@ -241,8 +241,6 @@ main ul {
 
 .animal-cards img {
   max-width: 250px;
-  /* height: 300px;
-    object-fit:contain; */
 }
 
 h3 {
@@ -259,6 +257,11 @@ h3 {
 .card-text {
   margin-left: 16px;
 }
+
+.card-text p{
+    margin-bottom: 8px;
+}
+
 .big-card-container {
   display: flex;
   justify-content: center;
