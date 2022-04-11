@@ -30,18 +30,9 @@ form.addEventListener("submit", (event) => {
   sendEmail(firstName, lastName, email, ul);
 });
 
-function sendEmail(firstName, lastName, email, list) {
+function sendEmail(firstName, lastName, email) {
   document.location = `mailto:${email}?
-  subject="List of Favorite Animals"
-  &body="${createEmailBody(firstName, lastName, list)}"`;
-}
-
-function createEmailBody(firstName, lastName, list) {
-  return ` Dear Receiver, ${firstName} ${lastName} would like you to receive the list of animals below:
-  
-  ${list.textContent}
-
-
+  subject="List of Favorite Animals from ${firstName} ${lastName}"
   `;
 }
 

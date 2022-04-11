@@ -331,6 +331,19 @@ select {
   top: 55%;
 }
 
+
+
+#favorite-animal option:hover{
+  background-color: var(--limeGreen);
+  color: white;
+}
+
+#favorite-animal option:checked{
+  background-color: var(--limeGreen);
+  color: white;
+}
+
+
 .learn-more {
   display: inline-block;
   margin-top: 32px;
