@@ -1,14 +1,13 @@
 const selector = document.querySelector(".selector");
 const ul = document.querySelector(".animals");
 const favorites = document.querySelector(".favorites");
-const hamburger = document.querySelector(".hamburger")
+const hamburger = document.querySelector(".hamburger");
 
-hamburger.addEventListener("click", ()=> {
-  const nav = document.querySelector("nav")
-  hamburger.classList.toggle("active")
-  nav.classList.toggle("active")
-})
-
+hamburger.addEventListener("click", () => {
+  const nav = document.querySelector("nav");
+  hamburger.classList.toggle("active");
+  nav.classList.toggle("active");
+});
 
 selector.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -31,14 +30,16 @@ selector.addEventListener("submit", (event) => {
 
 favorites.addEventListener("submit", (event) => {
   event.preventDefault();
-  const results = favorites.querySelectorAll("#favorite-animal option");
-  results.forEach(result => console.log(result.selected.value))
-  const data =["dog", "cat", "mouse"]
-  localStorage.setItem("favoriteAnimals", JSON.stringify(data))
-  console.log(localStorage.getItem("favoriteAnimals"))
+  const formData = new FormData(event.target);
+  const selectedAnimals = formData.get("favorite-animal");
+  console.log(selectedAnimals);
+});
 
-  });
+// const data =["dog", "cat", "mouse"]
+// localStorage.setItem("favoriteAnimals", JSON.stringify(data))
+// console.log(localStorage.getItem("favoriteAnimals"))
 
+//});
 
 function lowerCaseFirstLetter(string) {
   return string.charAt(0).toLowerCase() + string.slice(1);
@@ -83,8 +84,8 @@ function createAnimalCard(animal, wikiInfo) {
 function createOptionList(item) {
   const listOptions = document.querySelector("#favorite-animal");
   const option = document.createElement("option");
-  const {name} = item
-  option.textContent = name
-  option.value = name
+  const { name } = item;
+  option.textContent = name;
+  option.value = name;
   listOptions.append(option);
 }
