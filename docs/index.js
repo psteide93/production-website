@@ -5,6 +5,30 @@ const main = document.querySelector("main")
 const hamburger = document.querySelector(".hamburger")
 
 
+fetch(getAnimalApiUrlNumber(1))
+    .then(response => response.json())
+    .then(bigAnimals => bigAnimals.forEach(bigAnimal => {
+        bigCard.innerHTML = addBigCardToPage(bigAnimal)
+    })).catch(redirect)
+
+
+fetch(getAnimalApiUrlNumber(3))
+    .then(response => response.json())
+    .then(animals => animals.forEach(animal => {
+        const li = document.createElement("li")
+        li.classList.add("animal-cards")
+        li.innerHTML = addMultiCardsToPage(animal)
+        animalHook.append(li)
+    })).catch(redirect)
+    
+    
+hamburger.addEventListener("click", ()=> {
+    const nav = document.querySelector("nav")
+    hamburger.classList.toggle("active")
+    nav.classList.toggle("active")
+})
+
+
 function lowerCaseFirstLetter(string) {
     return string.charAt(0).toLowerCase() + string.slice(1)
 }
@@ -54,26 +78,7 @@ function parseJson(response){
     return response => response.json()
 }
 
-fetch(getAnimalApiUrlNumber(1))
-    .then(response => response.json())
-    .then(bigAnimals => bigAnimals.forEach(bigAnimal => {
-        bigCard.innerHTML = addBigCardToPage(bigAnimal)
-    }))
-
-
-fetch(getAnimalApiUrlNumber(3))
-    .then(response => response.json())
-    .then(animals => animals.forEach(animal => {
-        const li = document.createElement("li")
-        li.classList.add("animal-cards")
-        li.innerHTML = addMultiCardsToPage(animal)
-        animalHook.append(li)
-    }))
-    
-    
-hamburger.addEventListener("click", ()=> {
-    const nav = document.querySelector("nav")
-    hamburger.classList.toggle("active")
-    nav.classList.toggle("active")
-})
-
+function redirect(){
+    window.location.href =  "./404.html"
+  
+  }

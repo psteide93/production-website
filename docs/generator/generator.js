@@ -23,7 +23,7 @@ selector.addEventListener("submit", (event) => {
             createOptionList(animal);
           });
       })
-    );
+    ).catch(redirect);
   selector.classList.add("hidden");
   favorites.classList.remove("hidden");
 });
@@ -59,6 +59,11 @@ function getWikiUrl(animalName) {
 
 function parseJSON(httpResponse) {
   return httpResponse.json();
+}
+
+function redirect(){
+  window.location.href =  "../404.html"
+
 }
 
 function createAnimalCard(animal, wikiInfo) {

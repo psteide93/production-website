@@ -156,3 +156,29 @@ nav li a {
 nav li a:hover {
   color: var(--yellowGreen);
 }
+
+h1 {
+    font-size: 64px;
+    font-weight: bold;
+    color: var(--yellowGreen);
+    color: white;
+  }
+  
+  @media (max-width: 875px) {
+    h1 {
+      margin-bottom: 8px;
+    }
+  }
+
+  main > img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+
+  main p {
+    font-size: 88px;
+    margin: 24px;
+    background: var(--Green);
+    padding: 32px;
+  }
