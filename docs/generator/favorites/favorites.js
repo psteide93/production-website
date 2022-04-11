@@ -1,8 +1,8 @@
 const ul = document.querySelector(".favorite-list");
-const animals = JSON.parse(localStorage.getItem("favoriteAnimals"));
+const favoriteAnimals = JSON.parse(localStorage.getItem("favoriteAnimals"));
 const hamburger = document.querySelector(".hamburger");
 const form = document.querySelector("form");
-const clearButton = document.querySelector("button")
+const clearButton = document.querySelector("button");
 
 hamburger.addEventListener("click", () => {
   const nav = document.querySelector("nav");
@@ -10,30 +10,36 @@ hamburger.addEventListener("click", () => {
   nav.classList.toggle("active");
 });
 
-if (animals !== null){
-animals.forEach((animal) => {
-  li = document.createElement("li");
-  li.innerHTML = `
+if (favoriteAnimals !== null) {
+  const uniqueAnimals = favoriteAnimals.filter((animal, position) => {
+    return favoriteAnimals.indexOf(animal) == position;
+  });
+  uniqueAnimals.forEach((animal) => {
+    li = document.createElement("li");
+    li.innerHTML = `
 ${animal}
 `;
-  ul.append(li);
-});
+    ul.append(li);
+  });
 }
 
-clearButton.addEventListener("click", () =>{
-  localStorage.clear()
-  location.reload()
-})
+clearButton.addEventListener("click", () => {
+  localStorage.clear();
+  location.reload();
+});
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  let firstName = upperCaseFirstLetter(document.querySelector("#first-name").value)
-  let lastName = upperCaseFirstLetter(document.querySelector("#last-name").value);
+  let firstName = upperCaseFirstLetter(
+    document.querySelector("#first-name").value
+  );
+  let lastName = upperCaseFirstLetter(
+    document.querySelector("#last-name").value
+  );
   let email = document.querySelector("#e-mail").value;
   form.reset();
   sendEmail(firstName, lastName, email);
 });
-
 
 function sendEmail(firstName, lastName, email) {
   document.location = `mailto:${email}?

@@ -2,6 +2,8 @@ const selector = document.querySelector(".selector");
 const ul = document.querySelector(".animals");
 const favorites = document.querySelector(".favorites");
 const hamburger = document.querySelector(".hamburger");
+const localStorageContent = localStorage.getItem("favoriteAnimals");
+const bottomBanner = document.querySelector(".bottom-banner");
 
 hamburger.addEventListener("click", () => {
   const nav = document.querySelector("nav");
@@ -23,7 +25,8 @@ selector.addEventListener("submit", (event) => {
             createOptionList(animal);
           });
       })
-    ).catch(redirect);
+    )
+    .catch(redirect);
   selector.classList.add("hidden");
   favorites.classList.remove("hidden");
 });
@@ -31,18 +34,26 @@ selector.addEventListener("submit", (event) => {
 favorites.addEventListener("submit", (event) => {
   event.preventDefault();
   saveAnimalsFromSelector(event);
+  favorites.classList.add("hidden");
+  bottomBanner.classList.remove("hidden");
 });
+
+console.log(localStorageContent);
 
 function saveAnimalsFromSelector(event) {
   const formData = new FormData(event.target);
   const selectedAnimals = formData.getAll("favorite-animal");
-  console.log(selectedAnimals)
-  const favoriteAnimalList = []
-  favoriteAnimalList.concat(selectedAnimals)
-  console.log(favoriteAnimalList)
-  const animalJSON = JSON.stringify({favoriteAnimalList})
-  localStorage.setItem("favoriteAnimals", animalJSON);
-
+  let favoriteAnimals;
+  if (localStorageContent === null) {
+    favoriteAnimals = [];
+  } else {
+    favoriteAnimals = JSON.parse(localStorageContent);
+  }
+  selectedAnimals.forEach((animal) => {
+    favoriteAnimals.push(animal);
+    console.log(favoriteAnimals);
+    localStorage.setItem("favoriteAnimals", JSON.stringify(favoriteAnimals));
+  });
 }
 
 function lowerCaseFirstLetter(string) {
@@ -61,9 +72,8 @@ function parseJSON(httpResponse) {
   return httpResponse.json();
 }
 
-function redirect(){
-  window.location.href =  "../404.html"
-
+function redirect() {
+  window.location.href = "../404.html";
 }
 
 function createAnimalCard(animal, wikiInfo) {
