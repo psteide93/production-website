@@ -183,6 +183,10 @@ main > img {
   object-fit: cover;
 }
 
+h2{
+  text-transform: uppercase;
+}
+
 .animals {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

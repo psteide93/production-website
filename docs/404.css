@@ -179,6 +179,11 @@ h1 {
   main p {
     font-size: 88px;
     margin: 24px;
-    background: var(--Green);
+    background-color: var(--Green);
     padding: 32px;
+  }
+
+  main p:nth-of-type(2){
+    font-size: 44px;
+    background-color:var(--limeGreen);
   }
