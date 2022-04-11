@@ -2,6 +2,7 @@ const ul = document.querySelector(".favorite-list");
 const animals = JSON.parse(localStorage.getItem("favoriteAnimals"));
 const hamburger = document.querySelector(".hamburger");
 const form = document.querySelector("form");
+const clearButton = document.querySelector("button")
 
 hamburger.addEventListener("click", () => {
   const nav = document.querySelector("nav");
@@ -9,6 +10,7 @@ hamburger.addEventListener("click", () => {
   nav.classList.toggle("active");
 });
 
+if (animals !== null){
 animals.forEach((animal) => {
   li = document.createElement("li");
   li.innerHTML = `
@@ -16,19 +18,22 @@ ${animal}
 `;
   ul.append(li);
 });
+}
+
+clearButton.addEventListener("click", () =>{
+  localStorage.clear()
+  location.reload()
+})
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  console.log(ul.textContent);
-  let firstName = document.querySelector("#first-name").value;
-  firstName = upperCaseFirstLetter(firstName)
-  let lastName = document.querySelector("#last-name").value;
-  lastName = upperCaseFirstLetter(lastName)
+  let firstName = upperCaseFirstLetter(document.querySelector("#first-name").value)
+  let lastName = upperCaseFirstLetter(document.querySelector("#last-name").value);
   let email = document.querySelector("#e-mail").value;
   form.reset();
-  console.log(firstName, lastName, email);
-  sendEmail(firstName, lastName, email, ul);
+  sendEmail(firstName, lastName, email);
 });
+
 
 function sendEmail(firstName, lastName, email) {
   document.location = `mailto:${email}?

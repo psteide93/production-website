@@ -31,15 +31,11 @@ selector.addEventListener("submit", (event) => {
 favorites.addEventListener("submit", (event) => {
   event.preventDefault();
   const formData = new FormData(event.target);
-  const selectedAnimals = formData.get("favorite-animal");
-  console.log(selectedAnimals);
+  const selectedAnimals = formData.getAll("favorite-animal");
+  localStorage.setItem("favoriteAnimals", JSON.stringify(selectedAnimals))
+  console.log(localStorage.getItem("favoriteAnimals"))
 });
 
-// const data =["dog", "cat", "mouse"]
-// localStorage.setItem("favoriteAnimals", JSON.stringify(data))
-// console.log(localStorage.getItem("favoriteAnimals"))
-
-//});
 
 function lowerCaseFirstLetter(string) {
   return string.charAt(0).toLowerCase() + string.slice(1);

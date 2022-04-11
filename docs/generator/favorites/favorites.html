@@ -34,12 +34,15 @@
     </header>
     <main>
       <img src="../../assets/banner.jpg" alt="banner" />
-      <section class="welcome">
         <h2>Favorites</h2>
+        <article>
         <p>Welcome to the favorites page!</p>
         <p>The names of any animal saved on the generator page will be listed below</p>
         <ul class="favorite-list"></ul>
-      </section>
+      
+      
+      <button id="clear-favorites" class="clear">Clear Favorites</button>
+    </article>
       <form>
         <p>Want to email this list? Fill out the form below</p>
         <label for="first-name">First Name</label>
@@ -48,7 +51,7 @@
         <input type="text" id="last-name" required>
         <label for="e-mail">E-mail</label>
         <input type="email" id="e-mail" required>
-        <input id="submit" type="submit">
+        <button type="submit" class="submit">Submit</button>
       </form>
     </main>
   </body>
