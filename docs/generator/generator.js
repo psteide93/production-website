@@ -30,12 +30,20 @@ selector.addEventListener("submit", (event) => {
 
 favorites.addEventListener("submit", (event) => {
   event.preventDefault();
-  const formData = new FormData(event.target);
-  const selectedAnimals = formData.getAll("favorite-animal");
-  localStorage.setItem("favoriteAnimals", JSON.stringify(selectedAnimals))
-  console.log(localStorage.getItem("favoriteAnimals"))
+  saveAnimalsFromSelector(event);
 });
 
+function saveAnimalsFromSelector(event) {
+  const formData = new FormData(event.target);
+  const selectedAnimals = formData.getAll("favorite-animal");
+  console.log(selectedAnimals)
+  const favoriteAnimalList = []
+  favoriteAnimalList.concat(selectedAnimals)
+  console.log(favoriteAnimalList)
+  const animalJSON = JSON.stringify({favoriteAnimalList})
+  localStorage.setItem("favoriteAnimals", animalJSON);
+
+}
 
 function lowerCaseFirstLetter(string) {
   return string.charAt(0).toLowerCase() + string.slice(1);
