@@ -84,13 +84,13 @@ function createAnimalCard(animal, wikiInfo) {
         <div class = "card-body">
           <img src = "${image_link}" alt = ${name}>
           <div class = "card-text">
-          <p> Lives in ${lowerCaseFirstLetter(habitat)} </p>
-          <p> Eats: ${diet} </p>
-          <p> Where in the world can this animal be found: ${geo_range}</p>
-          <a target = "blank" 
-            class = "learn-more" 
-            href = ${wikiInfo[3][0]} 
-          >Learn More!</a>
+            <p> Lives in ${lowerCaseFirstLetter(habitat)} </p>
+            <p> Eats: ${diet} </p>
+            <p> Where in the world can this animal be found: ${geo_range}</p>
+            <a target = "blank" 
+              class = "learn-more" 
+              href = ${wikiInfo[3][0]} 
+            >Learn More!</a>
           </div>
         </div>
        </div>
