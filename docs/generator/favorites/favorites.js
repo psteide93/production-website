@@ -38,17 +38,18 @@ function getFormData(event) {
   const firstName = upperCaseFirstLetter(formData.get("first-name"));
   const lastName = upperCaseFirstLetter(formData.get("last-name"));
   const eMail = formData.get("e-mail");
-  return{
-   firstName,
-   lastName,
-   eMail 
+  return {
+    firstName,
+    lastName,
+    eMail,
   };
 }
 
 function sendEmail(user) {
-  const {firstName, lastName, eMail} = user 
+  const { firstName, lastName, eMail } = user;
   document.location = `mailto:${eMail}?
-  subject="List of Favorite Animals from ${firstName} ${lastName}"
+  subject=List%20of%20Favorite%20Animals%20from%20${firstName}%20${lastName}E
+  &body=%5Bcopy%20and%20paste%20your%20list%20of%20animals%20here%5D
   `;
 }
 
