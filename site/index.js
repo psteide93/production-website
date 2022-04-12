@@ -71,5 +71,5 @@ function parseJSON(response) {
 }
 
 function redirect() {
-  window.location.href = "./404.html";
+  window.location.href = "./site/404.html";
 }
