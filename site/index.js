@@ -20,15 +20,17 @@ function addAnimalCardsToPage(animals) {
     li.classList.add("animal-cards");
     li.innerHTML = `
           <div class = "animal-card">
-          <h3>${name}</h3>
-          <p><span> (${latin_name}) </span} </p>
-          <div class = "card-body">
-          <img src = "${image_link}" alt = ${name}>
-          <div class = "card-text">
-           <p> Lives in ${lowerCaseFirstLetter(habitat)} </p>
-           <p> Eats: ${diet} </p>
-           <p> Where in the world can this animal be found: ${geo_range}</p>
-           </div>
+            <h3>${name}</h3>
+            <p><span> (${latin_name}) </span} </p>
+            <div class = "card-body">
+              <img src = "${image_link}" alt = ${name}>
+              <div class = "card-text">
+                <p> Lives in ${lowerCaseFirstLetter(habitat)} </p>
+                <p> Eats: ${diet} </p>
+                <p> Where in the world can this animal be found: ${geo_range}</p>
+              </div>
+            </div>
+          </div>
       `;
     ul.append(li);
   });
@@ -56,11 +58,13 @@ function addBigCardToPage(bigAnimals) {
      <h3>${name}</h3> 
      <p><span> (${latin_name}) </span} </p>
      <div class = "card-body">
-     <img src = "${image_link}" alt = ${name}>
-     <div class = "card-text">
-      <p> Lives in ${habitat} </p>
-      <p> Eats: ${diet} </p>
-      <p> Where in the world can this animal be found: ${geo_range} </p>
+      <img src = "${image_link}" alt = ${name}>
+      <div class = "card-text">
+          <p> Lives in ${habitat} </p>
+          <p> Eats: ${diet} </p>
+          <p> Where in the world can this animal be found: ${geo_range} </p>
+        </div>
+      </div>
      </div>
      `;
   });
