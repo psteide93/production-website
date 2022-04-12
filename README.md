@@ -12,7 +12,7 @@ Given a user wants to save the name of the animal, they can save it to thier fav
 
 ### Page Screenshot
 
-![](assets/site-screenshot.png)
+![webpage](https://i2.paste.pics/89b7e556bf51e3b1d793459febe46370.png)
 
 ### Deloyed link
 
