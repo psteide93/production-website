@@ -1,44 +1,40 @@
 
-const animalHook = document.querySelector(".animals")
-const bigCard = document.querySelector(".big-card")
-const main = document.querySelector("main")
-const hamburger = document.querySelector(".hamburger")
-
+const animalHook = document.querySelector('.animals')
+const bigCard = document.querySelector('.big-card')
+const main = document.querySelector('main')
+const hamburger = document.querySelector('.hamburger')
 
 fetch(getAnimalApiUrlNumber(1))
-    .then(response => response.json())
-    .then(bigAnimals => bigAnimals.forEach(bigAnimal => {
-        bigCard.innerHTML = addBigCardToPage(bigAnimal)
-    })).catch(redirect)
-
+  .then(response => response.json())
+  .then(bigAnimals => bigAnimals.forEach(bigAnimal => {
+    bigCard.innerHTML = addBigCardToPage(bigAnimal)
+  })).catch(redirect)
 
 fetch(getAnimalApiUrlNumber(3))
-    .then(response => response.json())
-    .then(animals => animals.forEach(animal => {
-        const li = document.createElement("li")
-        li.classList.add("animal-cards")
-        li.innerHTML = addMultiCardsToPage(animal)
-        animalHook.append(li)
-    })).catch(redirect)
-    
-    
-hamburger.addEventListener("click", ()=> {
-    const nav = document.querySelector("nav")
-    hamburger.classList.toggle("active")
-    nav.classList.toggle("active")
+  .then(response => response.json())
+  .then(animals => animals.forEach(animal => {
+    const li = document.createElement('li')
+    li.classList.add('animal-cards')
+    li.innerHTML = addMultiCardsToPage(animal)
+    animalHook.append(li)
+  })).catch(redirect)
+
+hamburger.addEventListener('click', () => {
+  const nav = document.querySelector('nav')
+  hamburger.classList.toggle('active')
+  nav.classList.toggle('active')
 })
 
-
-function lowerCaseFirstLetter(string) {
-    return string.charAt(0).toLowerCase() + string.slice(1)
+function lowerCaseFirstLetter (string) {
+  return string.charAt(0).toLowerCase() + string.slice(1)
 }
 
-function getAnimalApiUrlNumber(number) {
-    return `https://zoo-animal-api.herokuapp.com/animals/rand/${number}`
+function getAnimalApiUrlNumber (number) {
+  return `https://zoo-animal-api.herokuapp.com/animals/rand/${number}`
 }
 
-function addBigCardToPage(bigAnimal) {
-    return `
+function addBigCardToPage (bigAnimal) {
+  return `
      <h3>${bigAnimal.name}</h3> 
      <p><span> (${bigAnimal.latin_name}) </span} </p>
      <div class = "card-body">
@@ -49,11 +45,10 @@ function addBigCardToPage(bigAnimal) {
       <p> Where in the world can this animal be found: ${bigAnimal.geo_range} </p>
      </div>
      `
-
 }
 
-function addMultiCardsToPage(animal){
-    return `
+function addMultiCardsToPage (animal) {
+  return `
     <div class = "animal-card">
     <h3>${animal.name}</h3> 
     <p><span> (${animal.latin_name}) </span} </p>
@@ -68,17 +63,16 @@ function addMultiCardsToPage(animal){
 `
 }
 
-function addErrorMessageToPage(){
-    const p = document.createElement("p")
-     p.textContent = "yikes"
-    main.append(p)    
+function addErrorMessageToPage () {
+  const p = document.createElement('p')
+  p.textContent = 'yikes'
+  main.append(p)
 }
 
-function parseJson(response){
-    return response => response.json()
+function parseJson (response) {
+  return response => response.json()
 }
 
-function redirect(){
-    window.location.href =  "./404.html"
-  
-  }
+function redirect () {
+  window.location.href = './404.html'
+}
