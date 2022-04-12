@@ -186,12 +186,13 @@ h2 {
   padding: 36px;
   background-color: var(--Green);
 }
-article{
+article {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 p {
+  font-weight: bold;
   font-size: 24px;
   margin: 16px 8px;
 }
@@ -201,8 +202,13 @@ p {
 }
 
 .favorite-list li {
-  font-size: 48px;
+  font-size: 24px;
   margin-bottom: 8px;
+  background-color: white;
+  padding: 1rem;
+  box-shadow: 0 2px 5px 0 hsla(0, 0%, 0%, 0.2);
+  border-radius: 0.25rem;
+  max-width: 600px;
 }
 
 .clear {
@@ -221,8 +227,6 @@ p {
 .clear:hover {
   box-shadow: inset 96px 0 0 0 hsl(0, 100%, 50%);
 }
-
-
 
 form {
   display: flex;
