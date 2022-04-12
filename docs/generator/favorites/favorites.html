@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" type="image/png" href="../../assets/favicons/favicon-16x16.png">
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="../../assets/favicons/favicon-16x16.png"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
@@ -26,31 +30,33 @@
       </div>
       <nav>
         <ul>
-        <li><a href="../../index.html">Home</a></li>
-        <li><a href="../generator.html">Random Animal Generator</a></li>
-        <li><a href="./favorites.html">Favorites</a></li>
-      </ul>
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../generator.html">Random Animal Generator</a></li>
+          <li><a href="./favorites.html">Favorites</a></li>
+        </ul>
       </nav>
     </header>
     <main>
       <img src="../../assets/banner.jpg" alt="banner" />
-        <h2>Favorites</h2>
-        <article>
+      <h2>Favorites</h2>
+      <div class="content">
         <p>Welcome to the favorites page!</p>
-        <p>The names of any animal saved on the generator page will be listed below</p>
+        <p>
+          The names of any animal saved on the generator page will be listed
+          below
+        </p>
         <ul class="favorite-list"></ul>
-      
-      
-      <button id="clear-favorites" class="clear">Clear Favorites</button>
-    </article>
+
+        <button id="clear-favorites" class="clear">Clear Favorites</button>
+      </div>
       <form>
         <p>Want to email this list? Fill out the form below</p>
         <label for="first-name">First Name</label>
-        <input type="text" id="first-name" required>
+        <input type="text" id="first-name" name="first-name" required />
         <label for="last-name">Last Name</label>
-        <input type="text" id="last-name" required>
+        <input type="text" id="last-name" name="last-name" required />
         <label for="e-mail">E-mail</label>
-        <input type="email" id="e-mail" required>
+        <input type="email" id="e-mail" name="e-mail" required />
         <button type="submit" class="submit">Submit</button>
       </form>
     </main>
